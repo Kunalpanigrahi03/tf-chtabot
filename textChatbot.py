@@ -78,4 +78,4 @@ def tf_chatbot():
     return jsonify({'user_input': user_input, 'bot_response': bot_response, 'country_listings': country_listings})
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=5000)
