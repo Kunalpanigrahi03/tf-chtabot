@@ -14,7 +14,6 @@ from keras.models import load_model
 app = Flask(__name__)
 
 
-
 model = load_model('chatbot_model_v2.h5')
 lemmatizer = WordNetLemmatizer()
 
@@ -81,8 +80,3 @@ def tf_chatbot():
         # If there's user input, return a response
         bot_response = "Received user input: " + user_input
         return jsonify({'user_input': user_input, 'bot_response': bot_response})
-        
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=False)
