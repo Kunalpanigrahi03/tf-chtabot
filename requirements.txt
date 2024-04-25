@@ -144,7 +144,6 @@ tensorboard==2.16.2
 tensorboard-data-server==0.7.2
 tensorboardX==2.6.2.2
 tensorflow==2.16.1
-tensorflow-intel==2.16.1
 termcolor==2.4.0
 tf-slim==1.1.0
 tflearn @ git+https://github.com/MihaMarkic/tflearn.git@6472b8588e758ff4a33a2764d4ee638bbd0e42f0
