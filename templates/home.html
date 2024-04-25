@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trigon Chatbot - Specially Made for Travigo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            background-color: #f7f7f7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .chatBot {
+            border: 3px solid red;
+            border-radius: 10px;
+            width: 500px;
+            height: 600px;
+            background: rgb(255, 255, 255);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background-color: red;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 7px 7px 0 0;
+        }
+
+        header h2 {
+            color: #fff;
+            margin: 0;
+        }
+
+        .chatbox {
+            padding: 15px;
+            list-style: none;
+            overflow-y: auto;
+            height: 350px;
+        }
+
+        .chatbox li {
+            margin-bottom: 10px;
+        }
+
+        .chat p {
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+
+        .chat-outgoing p {
+            background-color: #000000;
+            align-self: flex-end;
+            color: #fff;
+        }
+
+        .chat-incoming p {
+            background-color: #eaeaea;
+        }
+
+        .chat-input {
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+
+        .chat-input textarea {
+            flex: 1;
+            width: 522px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            resize: none;
+            outline: none;
+            overflow-y: auto;
+            background-color: #dcdcdc85;
+            font-size: 16px;
+            color: #000000;
+            font-weight: 600;
+            margin-top: -10px;
+            margin-left: -15px;
+            height: 71px;
+            margin-right: 10px;
+        }
+
+        #cross {
+            float: right;
+            position: relative;
+            top: -38px;
+            left: -15px;
+            cursor: pointer;
+            color: white;
+            font-weight: bolder;
+            font-size: 28px;
+        }
+
+        #cross:hover {
+            color: #8bd5ee;
+            transition: all .5s;
+        }
+
+        .chatbox .chat p.error {
+            color: #ffffff;
+            background-color: red;
+        }
+
+        #sendBTN {
+            width: 100%;
+            padding: 8px;
+            border: 0;
+            outline: none;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 7px;
+            background-color: red;
+            cursor: pointer;
+            color: white;
+        }
+
+        .recommendations {
+            padding: 15px;
+            border-top: 1px solid #ccc;
+            overflow-y: auto;
+            height: calc(100% - 425px);
+        }
+
+        .recommendations h3 {
+            margin-top: 15px;
+        }
+
+        .recommendations ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .recommendations li {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .recommendations img {
+            max-width: 100%;
+            height : auto;
+            margin-right: 15px;
+        }
+
+        .recommendations .media-body {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <div class="chatBot">
+          <header>
+              <h2>Trigon</h2>
+              <span alt="Close"
+                    id="cross"
+                    onclick="cancel()">X</span>
+          </header>
+          <ul class="chatbox">
+              <li class="chat-outgoing chat">
+                  <div>
+                      {% if country_listings %}
+                      <h3>Recommendations:</h3>
+                      <ul class="list-unstyled">
+                        {% for listing in country_listings %}
+                          <li class="media">
+                            <img src="{{ listing.image.url }}" class="mr-3" alt="{{ listing.title }}" >
+                            <div class="media-body">
+                              <h5 class="mt-0 mb-1">{{ listing.title }}</h5>
+                              <p>{{ listing.description }}</p>
+                              <p>Price: ${{ listing.price }}</p>
+                              <p>Location: {{ listing.location }}, {{ listing.country }}</p>
+                            </div>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                    </div>
+                  
+              </li>
+          </ul>
+          <div class="chat-input">
+              <form  action="/tf-chatbot" method="POST">
+                  <div class="form-group">
+                      <textarea rows="0" cols="17" name="user_input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Talk to my friend"></textarea><br>
+                      <button id="sendBTN" type="submit" class="btn btn-primary">Send</button>
+                  </div>
+              </form>
+              
+              
+          </div>
+         
+      </div>  
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to send message and handle response
+            function sendMessage() {
+                var user_input = $('textarea').val();
+                if (user_input.trim() !== '') {
+                    // Show loading indicator
+                    $('.chatbox').append('<li class="loading"><div class="loader"></div></li>');
+
+                    // Send message to server
+                    $.ajax({
+                        type: 'POST',
+                        url: '/tf-chatbot',
+                        data: {user_input: user_input},
+                        success: function(response) {
+                            // Remove loading indicator
+                            $('.loading').remove();
+
+                            // Update chat with response
+                            updateChat(response);
+                        }
+                    });
+                }
+            }
+
+            // Function to update chat with response
+            function updateChat(response) {
+                var user_input = response.user_input;
+                var bot_response = response.bot_response;
+                var country_listings = response.country_listings;
+
+                // Append user message
+                $('.chatbox').append('<li class="chat-outgoing chat"><p>User: ' + user_input + '</p></li>');
+
+                // Append bot response after 3 seconds (loading delay)
+                setTimeout(function() {
+                    // Append bot response
+                    $('.chatbox').append('<li class="chat-incoming chat"><p>Friend: ' + bot_response + '</p></li>');
+
+                    // Append recommendations if available
+                    if (country_listings && country_listings.length > 0) {
+                        var recommendationsHtml = '<li class="chat-outgoing chat"><div><h3>Recommendations:</h3><ul class="list-unstyled">';
+                        $.each(country_listings, function(index, listing) {
+                            recommendationsHtml += '<li class="media"><img src="' + listing.image.url + '" class="mr-3" alt="' + listing.title + '" ><div class="media-body"><h5 class="mt-0 mb-1">' + listing.title + '</h5><p>' + listing.description + '</p><p>Price: $' + listing.price + '</p><p>Location: ' + listing.location + ', ' + listing.country + '</p></div></li>';
+                        });
+                        recommendationsHtml += '</ul></div></li>';
+                        $('.chatbox').append(recommendationsHtml);
+                    }
+
+                    // Scroll to bottom of chatbox
+                    $('.chatbox').scrollTop($('.chatbox')[0].scrollHeight);
+                }, 3000);
+
+                // Clear the textarea
+                $('textarea').val('');
+            }
+
+            // Event listener for send button click
+            $('#sendBTN').click(function(e) {
+                e.preventDefault();
+                sendMessage();
+            });
+
+            // Event listener for enter key press
+            $('textarea').keypress(function(e) {
+                if (e.which == 13 && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

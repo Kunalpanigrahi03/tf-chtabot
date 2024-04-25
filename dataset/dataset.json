@@ -1,0 +1,357 @@
+{
+        "intents": [
+          {
+            "tag": "greeting",
+            "patterns": [
+              "Hi",
+              "How are you",
+              "Is anyone there?",
+              "Hello",
+              "Good day",
+              "Whats up",
+              "how are ya",
+              "heyy",
+              "whatsup"
+            ],
+            "responses": [
+              "Hello! Trigon at your service :)",
+              "Good to see you again!",
+              "Hi there, how can I help?"
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "goodbye",
+            "patterns": [
+              "cya",
+              "see you",
+              "bye bye",
+              "See you later",
+              "Goodbye",
+              "I am Leaving",
+              "Bye",
+              "Have a Good day",
+              "talk to you later",
+              "tyyl",
+              "i got to go",
+              "gtg"
+            ],
+            "responses": [
+              "Sad to see you go :(",
+              "Talk to you later",
+              "Goodbye! Hope you loved my service.",
+              "Come back soon"
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "creator",
+            "patterns": [
+              "what are the names of your developers",
+              "what are the names of your creators",
+              "who created you",
+              "your developers",
+              "your creators",
+              "who are your developers",
+              "developers",
+              "you are made by",
+              "you are made by whom",
+              "who created you",
+              "who create you",
+              "creators",
+              "who made you",
+              "who designed you"
+            ],
+            "responses": [
+              "Kunal and Mandira, developers for Trivago",
+              "I was developed by Kunal and Mandira",
+              "2 young lads developed me in KIIT"
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "name",
+            "patterns": [
+              "name",
+              "your name",
+              "do you have a name",
+              "what are you called",
+              "what is your name",
+              "what should I call you",
+              "whats your name?",
+              "what are you",
+              "who are you",
+              "who is this",
+              "what am i chatting to",
+              "who am i taking to",
+              "what are you"
+            ],
+            "responses": [
+              "You can call me Trigon.",
+              "I'm Trigon",
+              "I am Trigon, Travigo Assistant."
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "ask_recommendation",
+            "patterns": [
+              "Can you recommend a hotel?",
+              "I need a hotel recommendation",
+              "Any good hotels around here?",
+              "Hotel recommendation",
+              "Recommend a nice place to stay?"
+            ],
+            "responses": [
+              "Certainly! What are your preferences for the hotel?",
+              "Of course, could you provide me with some details about your ideal hotel or preferences?"
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "ask_information",
+            "patterns": [
+              "Can you give me information about a hotel?",
+              "I want to know more about a hotel",
+              "Tell me about a hotel",
+              "Hotel information"
+            ],
+            "responses": [
+              "Sure, please provide me with the name or location of the hotel you're interested in."
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "extra_beds",
+            "patterns": [
+              "I need extra beds.",
+              "Can I have extra beds in my room?",
+              "Are additional beds available?"
+            ],
+            "responses": [
+              "Certainly! We can look for hotels that can arrange extra beds if needed and recommend you hotels accordingly."
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "room_type",
+            "patterns": [
+              "I would prefer deluxe rooms",
+              "Premium rooms will be preferred",
+              "Are standard rooms available?"
+            ],
+            "responses": [
+              "We offer various room types including standard, deluxe, and premiums. Definitely we can provide with rooms of your choice!"
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "price_range",
+            "patterns": [
+              "I need hotels in range within 5000",
+              "I need hotels with price range above 5000"
+            ],
+            "responses": [
+              "Okay, we will find suitable hotel options for you."
+            ],
+            "context_set": ""
+          },
+            {
+            "tag": "country_preference",
+            "patterns": [
+              "Find me hotels in [country]",
+              "I am planning to stay in [country]",
+              "I am interested in [country]",
+              "Can you recommend me hotels in [country]?"
+            ],
+            "responses": [
+              "Sure. Here are your recommendations."
+            ],
+            "context_set": ""
+            },
+          {
+            "tag": "thank_you",
+            "patterns": [
+              "Thanks",
+              "Thank you",
+              "Appreciate it",
+              "Ok",
+              "Thanks a lot"
+            ],
+            "responses": [
+              "Do visit Travigo again!",
+              "Happy to help! Do visit Travigo again!",
+              "No problem, feel free to ask Trigon if you need anything else."
+            ],
+            "context_set": ""
+          }
+        ],
+        "listings": [
+            {
+              "title": "Cozy Beachfront Cottage",
+              "description": "Escape to this charming beachfront cottage for a relaxing getaway. Enjoy stunning ocean views and easy access to the beach.",
+              "image": {
+                "filename": "listingimage",
+                "url": "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+              },
+              "price": 1500,
+              "location": "Malibu",
+              "country": "United States"
+            },
+            {
+              "title": "Modern Loft in Downtown",
+              "description": "Stay in the heart of the city in this stylish loft apartment. Perfect for urban explorers!",
+              "image": {
+                "filename": "listingimage",
+                "url": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+              },
+              "price": 2000,
+              "location": "New York City",
+              "country": "United States"
+            },
+            {
+                "title": "Mountain Retreat",
+                "description": "Unplug and unwind in this peaceful mountain cabin. Surrounded by nature, it's a perfect place to recharge.",
+                "image": {
+                  "filename": "listingimage",
+                  "url": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aG90ZWxzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+                },
+                "price": 1000,
+                "location": "Aspen",
+                "country": "United States"
+              },
+              {
+                "title": "Historic Brownstone in Boston",
+                "description": "Step back in time in this elegant historic brownstone located in the heart of Boston.",
+                "image": {
+                  "filename": "listingimage",
+                  "url": "https://images.unsplash.com/photo-1533619239233-6280475a633a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNreSUyMHZhY2F0aW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+                },
+                "price": 2200,
+                "location": "Boston",
+                "country": "United States"
+              },
+              {
+                "title": "Luxury Villa in Miami",
+                "description": "Indulge in the luxury of this stunning villa in Miami. Enjoy the private pool and beautiful ocean views.",
+                "image": {
+                  "filename": "listingimage",
+                  "url": "https://images.unsplash.com/photo-1561597292-8e1865ec48a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+                },
+                "price": 3000,
+                "location": "Miami",
+                "country": "United States"
+              },
+            {
+              "title": "Charming Countryside Villa",
+              "description": "Experience the beauty of the French countryside in this lovely villa. Surrounded by vineyards and rolling hills.",
+              "image": {
+                "filename": "listingimage",
+                "url": "https://images.unsplash.com/photo-1561597292-8e1865ec48a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+              },
+              "price": 1800,
+              "location": "Provence",
+              "country": "France"
+            },
+                {
+                "title": "Seaside Villa in Amalfi",
+                "description": "Relax in this beautiful seaside villa in Amalfi. Enjoy stunning views of the Mediterranean Sea.",
+                "image": {
+                        "filename": "listingimage",
+                        "url": "https://images.unsplash.com/photo-1561597292-8e1865ec48a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+                },
+                "price": 2500,
+                "location": "Amalfi",
+                "country": "Italy"
+                },
+                {
+                "title": "Rustic Finca in Mallorca",
+                "description": "Escape to this charming rustic finca in Mallorca. Surrounded by olive groves and mountains.",
+                "image": {
+                        "filename": "listingimage",
+                        "url": "https://images.unsplash.com/photo-1561597292-8e1865ec48a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+                },
+                "price": 2000,
+                "location": "Mallorca",
+                "country": "Spain"
+                },
+                {
+                "title": "Stylish Villa in Mykonos",
+                "description": "Stay in this stylish villa in Mykonos. Perfect for a luxurious island getaway.",
+                "image": {
+                        "filename": "listingimage",
+                        "url": "https://images.unsplash.com/photo-1561597292-8e1865ec48a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+                },
+                "price": 3000,
+                "location": "Mykonos",
+                "country": "Greece"
+                },
+                {
+                "title": "Traditional Ryokan in Kyoto",
+                "description": "Experience traditional Japanese hospitality in this beautiful ryokan in Kyoto.",
+                "image": {
+                        "filename": "listingimage",
+                        "url": "https://images.unsplash.com/photo-1561597292-8e1865ec48a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+                },
+                "price": 2500,
+                "location": "Kyoto",
+                "country": "Japan"
+                },
+                {
+                "title": "Luxury Resort in Goa",
+                "description": "Relax in this luxury resort in Goa. Enjoy the beautiful beaches and vibrant culture.",
+                "image": {
+                        "filename": "listingimage",
+                        "url": "https://images.unsplash.com/photo-1561597292-8e1865ec48a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+                },
+                "price": 2000,
+                "location": "Goa",
+                "country": "India"
+                },
+                {
+                "title": "Beachfront Bungalow in Byron Bay",
+                "description": "Stay in this charming beachfront bungalow in Byron Bay. Perfect for a relaxing beach getaway.",
+                "image": {
+                        "filename": "listingimage",
+                        "url": "https://images.unsplash.com/photo-1561597292-8e1865ec48a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+                },
+                "price": 1800,
+                "location": "Byron Bay",
+                "country": "Australia"
+                },
+                {
+                "title": "Tropical Villa in Phuket",
+                "description": "Relax in this tropical villa in Phuket. Enjoy the lush gardens and private pool.",
+                "image": {
+                        "filename": "listingimage",
+                        "url": "https://images.unsplash.com/photo-1561597292-8e1865ec48a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+                },
+                "price": 2500,
+                "location": "Phuket",
+                "country": "Thailand"
+                },
+                {
+                "title": "Cosy Cottage in the Cotswolds",
+                "description": "Escape to this cosy cottage in the Cotswolds. Enjoy the picturesque countryside and charming villages.",
+                "image": {
+                        "filename": "listingimage",
+                        "url": "https://images.unsplash.com/photo-1561597292-8e1865ec48a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+                },
+                "price": 2000,
+                "location": "Cotswolds",
+                "country": "United Kingdom"
+                },
+                {
+                "title": "Modern Apartment in Berlin",
+                "description": "Stay in this modern apartment in Berlin. Perfect for exploring the vibrant city.",
+                "image": {
+                        "filename": "listingimage",
+                        "url": "https://images.unsplash.com/photo-1561597292-8e1865ec48a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+                },
+                "price": 2200,
+                "location": "Berlin",
+                "country": "Germany"
+                }
+              ]
+      }
+      
