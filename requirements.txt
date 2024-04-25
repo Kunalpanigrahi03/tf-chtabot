@@ -166,7 +166,6 @@ watchdog==4.0.0
 wcwidth==0.2.13
 Werkzeug==3.0.2
 wheel==0.43.0
-windows-curses==2.3.2
 wrapt==1.16.0
 xxhash==3.4.1
 yarl==1.9.4
