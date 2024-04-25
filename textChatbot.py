@@ -76,7 +76,10 @@ def home():
 @app.route("/tf-chatbot", methods=['POST'])  
 def tf_chatbot():
     user_input = request.form['user_input']
-    if user_input:
-        # If there's user input, return a response
-        bot_response = "Received user input: " + user_input
-        return jsonify({'user_input': user_input, 'bot_response': bot_response})
+    bot_response, country_listings = get_bot_response(user_input)
+    return jsonify({'user_input': user_input, 'bot_response': bot_response, 'country_listings': country_listings})
+        
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=False)
