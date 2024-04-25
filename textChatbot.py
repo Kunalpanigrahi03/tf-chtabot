@@ -4,14 +4,19 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 nltk.download('punkt')
 import json
+import threading
 import random
+import time
 from nltk.stem import WordNetLemmatizer
 import pickle
 import numpy as np
 import re
 from keras.models import load_model
 
+
 app = Flask(__name__)
+
+shutdown_event = threading.Event()
 
 model = load_model('chatbot_model_v2.h5')
 lemmatizer = WordNetLemmatizer()
@@ -67,6 +72,14 @@ def get_bot_response(user_input):
     
     return result, filtered_listings
 
+def shutdown_server():
+    print("Shutting down server...")
+    shutdown_event.set()
+    time.sleep(1)  # Allow time for response to be sent
+    func = request.environ.get('werkzeug.server.shutdown')
+    if func:
+        func()
+
 @app.route("/")
 def home():
     return render_template("home.html")
@@ -77,5 +90,11 @@ def tf_chatbot():
     bot_response, country_listings = get_bot_response(user_input)
     return jsonify({'user_input': user_input, 'bot_response': bot_response, 'country_listings': country_listings})
 
+shutdown_timer = threading.Timer(30.0, shutdown_server)
+shutdown_timer.start()
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=False)
+
+if shutdown_event.is_set():
+    shutdown_timer.cancel()
